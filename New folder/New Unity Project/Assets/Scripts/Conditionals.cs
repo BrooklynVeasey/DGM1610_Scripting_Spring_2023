@@ -8,7 +8,7 @@ public class Conditionals : MonoBehaviour
     int time = 304;
     public string weather = "Clear";
     bool isStopLightRed = true;
-    float gpa = 3.25f;
+    public float gpa = 3.25f;
     double temperature = 101.45d;
 
 
@@ -25,6 +25,32 @@ public class Conditionals : MonoBehaviour
         {
             Debug.Log("It's too early go back to bed!");
         }
+
+        // Check Stop Light
+        if(isStopLightRed == true)
+            {
+                Debug.Log("Don't go, the light is red!");
+            }
+            else
+            {
+                Debug.Log("The light is green, you are good to go!");
+            }
+
+        // Check Temperature
+        if(temperature == 96.35d)
+            {
+                Debug.Log("It's a nice day outside");
+            }
+        else if(temperature < 96.35d)
+             {
+                 Debug.Log("It's a rather chilly day outside");
+             }
+        else if(temperature > 96.35d)
+            {
+                Debug.Log("It's really hot outside!");
+            }
+
+        
 
         /*
 
@@ -49,28 +75,38 @@ public class Conditionals : MonoBehaviour
     {
          //Check Weather
         if(weather == "Cloudy")
-        {
-            Debug.Log("It is cloudy outside");
-        }
+            {
+               Debug.Log("It is cloudy outside");
+            }
         else if (weather == "Raining")
-        {
-            Debug.Log("It is raining outside!");
-        }
+            {
+                Debug.Log("It is raining outside!");
+            }
         else if (weather == "Clear")
-        {
-            Debug.Log("It is a beautiful day outside!");
-        }
+            {
+                Debug.Log("It is a beautiful day outside!");
+            }
         else if (weather == "Thunder/Lightning")
-        {
-            Debug.Log("There is thunder and lightning outside, stay indoors!!!");
-        }
+            {
+                Debug.Log("There is thunder and lightning outside, stay indoors!!!");
+            }
         else if (weather == "Snowing")
-        {
-            Debug.Log("It is snowing outside, bundle up it is cold");
-        }
+            {
+                Debug.Log("It is snowing outside, bundle up it is cold");
+            }
         else
-        {
-            Debug.Log("Do what you want, it's a day");
-        }
+            {
+                Debug.Log("Do what you want, it's a day");
+            }
+
+        //Check GPA
+        if(gpa >= 3.5f)
+            {
+                Debug.Log("Your grades are looking great!");
+            }
+        else if(gpa < 3.5f)
+            {
+                Debug.Log("You should get your grades up!");
+            }
     }
 }
