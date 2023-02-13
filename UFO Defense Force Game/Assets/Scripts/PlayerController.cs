@@ -6,15 +6,12 @@ public class PlayerController : MonoBehaviour
 {
 
     public float horizontalInput;
-    public float speed;
+    public float speed = 25;
 
-    public float xRange;
+    public float xRange = 30;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform blaster;
+    public GameObject lazerBolt;
 
     // Update is called once per frame
     void Update()
@@ -35,5 +32,17 @@ public class PlayerController : MonoBehaviour
         {
                 transform.position = new Vector3(xRange,transform.position.y, transform.position.z);
         }
+        //If Spacebar pressed create lazer bolt
+        if(Input.GetKeyDown(KeyCode.Space))
+            //Create lazer bolt at blaster position while keeping object rotation
+        {
+            Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
     }
 }
