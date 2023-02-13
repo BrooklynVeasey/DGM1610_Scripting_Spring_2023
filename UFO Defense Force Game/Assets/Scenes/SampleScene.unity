@@ -239,6 +239,7 @@ MonoBehaviour:
   xRange: 30
   blaster: {fileID: 1914425901}
   lazerBolt: {fileID: 1276655998481437408, guid: d0764f20bfb68bf42990ba5c957adcd9, type: 3}
+  collectible: {fileID: 1091471268953049929, guid: 210b9af3cdc32f2469de59ffd55dbd10, type: 3}
 --- !u!1 &685037948
 GameObject:
   m_ObjectHideFlags: 0

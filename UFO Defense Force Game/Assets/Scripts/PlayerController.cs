@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform blaster;
     public GameObject lazerBolt;
+    public GameObject collectible;
 
     // Update is called once per frame
     void Update()
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Delete any object with a trigger that hits the player
         Destroy(other.gameObject);
     }
+
 }
