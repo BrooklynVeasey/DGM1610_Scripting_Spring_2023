@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public float speed = -15.0f;
+    public float speed = -5.0f;
 
     public GameObject collectible;
     public float xSpawnRange = 15;
     private float zSpawnPos;
     public float startDelay = 0.5f;
-    public float spawnInterval = 1.5f;
+    public float spawnInterval = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,3 +32,5 @@ public class Collectible : MonoBehaviour
         Instantiate(collectible, spawnPos, collectible.transform.rotation);
     }
 }
+
+//record pickup count in an integer??? somehow???

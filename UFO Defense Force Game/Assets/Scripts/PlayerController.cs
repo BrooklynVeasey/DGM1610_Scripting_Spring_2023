@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public float xRange = 30;
 
+    public int collectibleCount;
+
     public Transform blaster;
     public GameObject lazerBolt;
     public GameObject collectible;
@@ -42,10 +44,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collectible)
     {
-        //Delete any object with a trigger that hits the player
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
+        //somehow add to score int
     }
 
 }
