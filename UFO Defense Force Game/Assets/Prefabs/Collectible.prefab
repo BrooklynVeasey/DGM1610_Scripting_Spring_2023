@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -15
-  collectible: {fileID: 0}
+  collectible: {fileID: 1091471268953049929}
   xSpawnRange: 15
   startDelay: 3
   spawnInterval: 7
@@ -130,3 +130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 30
   lowerBounds: -10
+  scoreManager: {fileID: 0}

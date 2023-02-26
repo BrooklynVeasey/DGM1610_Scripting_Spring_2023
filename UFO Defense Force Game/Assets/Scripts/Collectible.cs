@@ -11,6 +11,7 @@ public class Collectible : MonoBehaviour
     private float zSpawnPos;
     public float startDelay = 0.5f;
     public float spawnInterval = 1f;
+    private int collectCount;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,16 @@ public class Collectible : MonoBehaviour
         //Generate the X spawn position
         Vector3 spawnPos = new Vector3(Random.Range(-xSpawnRange, xSpawnRange), 0, 10);
         Instantiate(collectible, spawnPos, collectible.transform.rotation);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player")) //Collectible and Player
+        {
+            Destroy(gameObject); //Destroys game object
+            Debug.Log("collectCount += amount");
+        }
+
     }
 }
 
