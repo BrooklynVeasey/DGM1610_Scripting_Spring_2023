@@ -7,6 +7,16 @@ public class DestroyOutOfBounds : MonoBehaviour
     public float topBounds = 30.0f;
     public float lowerBounds = -10.0f;
 
+    public ScoreManager scoreManager; //reference the score manager so that we can update the score
+
+    private DetectCollisions detectCollision;
+
+    void Start()
+    {
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); //Getting the component ScoreManager
+        detectCollision = GetComponent<DetectCollisions>();
+    }
+
     void Awake()
     {
         //Time.timeScale = 1;
@@ -21,6 +31,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         }
         else if(transform.position.z <lowerBounds)
         {
+            scoreManager.DecreaseScore(detectCollision.scoreToGive); //Everytime a ship sneaks past the lower bounds deduct points
             Debug.Log("Game Over!");
             Destroy(gameObject);
             //Time.timescale = 0;
