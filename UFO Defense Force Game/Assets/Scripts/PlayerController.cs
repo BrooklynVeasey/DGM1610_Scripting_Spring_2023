@@ -18,11 +18,14 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource blasterAudio;
     public AudioClip laserBlast;
-
+    private AudioSource explosionAudio;
+    public AudioClip explosion;
+    
     void Start()
     {
         //Get AudioSource component
         blasterAudio = GetComponent<AudioSource>();
+        explosionAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,7 +54,11 @@ public class PlayerController : MonoBehaviour
             blasterAudio.PlayOneShot(laserBlast,1.0f); //Play blasterAudio sound clip
             Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
         }
+    }
 
+    void PlayExplosion()
+    {
+        explosionAudio.PlayOneShot(explosion,1.0f);
     }
 
     private void OnTriggerEnter(Collider collectible)

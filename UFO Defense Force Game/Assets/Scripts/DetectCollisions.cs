@@ -10,6 +10,9 @@ public class DetectCollisions : MonoBehaviour
 
     public ParticleSystem explosionParticle; //Store teh particle system
 
+    private AudioSource explosionAudio;
+    public AudioClip explosion;
+
     // Start is called before the first frame update
     void Start()
     {
