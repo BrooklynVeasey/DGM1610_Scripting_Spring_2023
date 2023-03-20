@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class CollectibleChallenge : MonoBehaviour
 {
+    private GameManager gameManager;
 
-    public GameObject collectible;
-    public int increaseAmount;
-    private int collectibleAmount;
+    public int increaseScore;
+    private int scoreToGive;
 
-   // public GameManager gameManager; //reference game manager when created
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")) //Collectible and Player
-        {
-            Destroy(gameObject); //Destroys game object
-          //  gameManager.IncreaseScore(increaseAmount);
-        }
+        Destroy(gameObject); //Destroys game object
+        gameManager.IncreaseScore(scoreToGive);
     }
 }
