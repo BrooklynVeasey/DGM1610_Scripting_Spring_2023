@@ -6,6 +6,8 @@ public class RangedWeapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject projectile;
+    private bool isFacingRight = true;
+    private float moveInput;
 
     // Update is called once per frame
     void Update()
@@ -19,5 +21,25 @@ public class RangedWeapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(projectile,firePoint.position,firePoint.rotation);
+    }
+
+    void FixedUpdate()
+    {
+        if(!isFacingRight && moveInput >0)
+        {
+            FlipPlayer();
+        }
+        else if(isFacingRight && moveInput <0)
+        {
+            FlipPlayer();
+        }
+    }
+
+    void FlipPlayer()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
+        transform.localScale = scaler;
     }
 }
