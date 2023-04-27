@@ -16,11 +16,11 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<PlayerController>();
+        target = FindObjectOfType<PlayerController>().gameObject;
 
         player = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        InvokeRepeating("UpdatePat", 0.0f, 0.5f);
+        InvokeRepeating("UpdatePath", 0.0f, 0.5f);
 
         curHp = maxHp;
     }
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     {
         //Calculate a path to the target
         UnityEngine.AI.NavMeshPath navMeshPath = new UnityEngine.AI.NavMeshPath();
-        NewMesh.CalculatePath(transform.position, target.transform.position, UnityEngine.AI.NavMesh.AllAreas, navMeshPath);
+        UnityEngine.AI.NavMesh.CalculatePath(transform.position, target.transform.position, UnityEngine.AI.NavMesh.AllAreas, navMeshPath);
 
         path = navMeshPath.corners.ToList();
     }

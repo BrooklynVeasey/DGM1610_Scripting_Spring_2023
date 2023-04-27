@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private Camera camera;
     private Rigidbody rb;
-    //private Weapon weapon;
 
     void Awake()
     {
@@ -65,9 +64,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        curHp -= damage;
+
+        if(curHp <= 0)
+            Die();
+    }
+
+    void Die()
+    {
+        //GameManager.instance.LoseGame();
+        Debug.Log("Player has died! Game Over!");
+        Time.timeScale = 0;
+    }
+
+    public void GiveHealth(int amountToGive)
+    {
+        //curHp = Mathf.Clamp(curHp + amountToGive, 0, maxHp);
+        //GameUI.instance.UpdateHealthBar(curHp, maxHp);
+        Debug.Log("Player has been healed!");
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
+        CamLook(); 
+
+        if(Input.GetButtonDown("Jump"))
+            Jump();   
     }
 }
