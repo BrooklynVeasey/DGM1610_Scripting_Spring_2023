@@ -15,15 +15,48 @@ public class GameUI : MonoBehaviour
     public GameObject endGameScreen;
     //public TextMeshProUGUI endGameHeader;
 
-    // Start is called before the first frame update
-    void Start()
+    public static GameUI instance;
+
+    void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHealthBar(int curHP, int maxHP)
     {
-        
+        //healthBarFill.fillAmount = (float)curHP / (float)maxHP;
+    }
+
+    public void UpdateScoreText (int score)
+    {
+        //scoreText.text = "Score: " + score;
+    }
+
+    public void TogglePauseMenu(bool paused)
+    {
+        pauseMenu.SetActive(paused);
+    }
+
+    public void SetEndGameScreen (bool won, int score)
+    {
+        endGameScreen.SetActive(true);
+        //endGameHeaderText.text = won == true ? "You Win" : "You Lose";
+        //endGameHeaderText.color = won == true ? Color.green : Color.red;
+        //endGameScoreText.text = "<b>Score</b>\n" + score;
+    }
+
+    public void OnResumeButton()
+    {
+        GameManager.instance.TogglePauseGame();
+    }
+
+    public void OnRestartButton()
+    {
+        //scoreManager.LoadScene("Game");
+    }
+
+    public void OnMenuButton()
+    {
+        //SceneManager.LoadScene("Menu");
     }
 }

@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
         UnityEngine.AI.NavMeshPath navMeshPath = new UnityEngine.AI.NavMeshPath();
         UnityEngine.AI.NavMesh.CalculatePath(transform.position, target.transform.position, UnityEngine.AI.NavMesh.AllAreas, navMeshPath);
 
-        path = navMeshPath.corners.ToList();
+        //path = navMeshPath.corners.ToList();
     }
 
     void ChaseTarget()
